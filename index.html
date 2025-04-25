@@ -1,362 +1,292 @@
-/* Reset básico y estilos generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --color-primario: #2c3e50;
-    --color-secundario: #3498db;
-    --color-accento: #e74c3c;
-    --color-texto: #333;
-    --color-texto-claro: #f8f9fa;
-    --color-fondo: #f8f9fa;
-    --color-borde: #dee2e6;
-    --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --sombra-hover: 0 6px 8px rgba(0, 0, 0, 0.15);
-    --transicion: all 0.3s ease;
-}
-
-body {
-    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: var(--color-texto);
-    background-color: var(--color-fondo);
-    font-size: 16px;
-}
-
-/* Tipografía profesional */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-    font-weight: 600;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: var(--color-primario);
-}
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
-p {
-    margin-bottom: 1.5rem;
-}
-
-a {
-    color: var(--color-secundario);
-    text-decoration: none;
-    transition: var(--transicion);
-}
-
-a:hover {
-    color: var(--color-accento);
-    text-decoration: underline;
-}
-
-/* Layout profesional */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header profesional */
-.header {
-    background-color: var(--color-primario);
-    color: var(--color-texto-claro);
-    padding: 1.5rem 0;
-    box-shadow: var(--sombra);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-texto-claro);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-}
-
-.nav-links li {
-    margin-left: 2rem;
-}
-
-.nav-links a {
-    color: var(--color-texto-claro);
-    font-weight: 500;
-    text-decoration: none;
-    transition: var(--transicion);
-}
-
-.nav-links a:hover {
-    color: var(--color-accento);
-    text-decoration: none;
-}
-
-/* Hero section profesional */
-.hero {
-    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
-    color: var(--color-texto-claro);
-    padding: 5rem 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-}
-
-.btn {
-    display: inline-block;
-    background-color: var(--color-accento);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: var(--transicion);
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.btn:hover {
-    background-color: darken(var(--color-accento), 10%);
-    transform: translateY(-2px);
-    box-shadow: var(--sombra-hover);
-    color: white;
-    text-decoration: none;
-}
-
-.btn-outline {
-    background-color: transparent;
-    border: 2px solid white;
-    margin-left: 1rem;
-}
-
-.btn-outline:hover {
-    background-color: white;
-    color: var(--color-primario);
-}
-
-/* Secciones profesionales */
-.section {
-    padding: 5rem 0;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.section-title:after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--color-secundario);
-    margin: 1rem auto 0;
-}
-
-/* Tarjetas profesionales */
-.card {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: var(--sombra);
-    overflow: hidden;
-    transition: var(--transicion);
-    margin-bottom: 2rem;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-hover);
-}
-
-.card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 1.5rem;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-/* Grid profesional */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Formulario profesional */
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--color-borde);
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: var(--transicion);
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: var(--color-secundario);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-textarea.form-control {
-    min-height: 150px;
-    resize: vertical;
-}
-
-/* Footer profesional */
-.footer {
-    background-color: var(--color-primario);
-    color: var(--color-texto-claro);
-    padding: 3rem 0 1.5rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-title {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 0.75rem;
-}
-
-.footer-links a {
-    color: #bdc3c7;
-    transition: var(--transicion);
-}
-
-.footer-links a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: white;
-    transition: var(--transicion);
-}
-
-.social-links a:hover {
-    background-color: var(--color-secundario);
-    transform: translateY(-3px);
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #bdc3c7;
-    font-size: 0.875rem;
-}
-
-/* Responsive design */
-@media (max-width: 992px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web Interactiva</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #e8491d;
+            padding: 10px 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #333;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        button {
+            background: #e8491d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #333;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        
+        .dark-mode .card {
+            background: #2d2d2d;
+            color: #f4f4f4;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
+        input, textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Página Interactiva</h1>
+        <p>Explora las características interactivas</p>
+    </header>
     
-    .nav-links {
-        margin-top: 1.5rem;
-    }
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#acerca">Acerca de</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
     
-    .nav-links li {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
+    <div class="container">
+        <section id="inicio" class="card">
+            <h2>Bienvenido</h2>
+            <p>Esta es una página web interactiva con varias características:</p>
+            <ul>
+                <li>Cambio de tema (claro/oscuro)</li>
+                <li>Formulario interactivo</li>
+                <li>Efectos hover</li>
+                <li>Contenido que aparece/desaparece</li>
+            </ul>
+            <button id="show-more">Mostrar más</button>
+            <div id="more-content" class="hidden">
+                <p>¡Contenido adicional revelado! Esta sección estaba oculta y ahora es visible gracias a JavaScript.</p>
+                <p>Puedes usar esta técnica para mostrar información adicional cuando el usuario lo solicite.</p>
+            </div>
+        </section>
+        
+        <section id="acerca" class="card">
+            <h2>Acerca de Nosotros</h2>
+            <p>Somos un equipo dedicado a crear experiencias web interactivas y atractivas para los usuarios.</p>
+            <div class="interactive-box">
+                <p>Pasa el mouse sobre este cuadro:</p>
+                <div class="color-box" style="width: 100px; height: 100px; background-color: #e8491d; margin: 10px auto;"></div>
+            </div>
+        </section>
+        
+        <section id="servicios" class="card">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Diseño Web</h3>
+                    <p>Creación de diseños modernos y responsivos.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Desarrollo Frontend</h3>
+                    <p>Implementación interactiva con HTML, CSS y JavaScript.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Optimización</h3>
+                    <p>Mejora de rendimiento y experiencia de usuario.</p>
+                </div>
+            </div>
+            <button id="animate-services">Animar Servicios</button>
+        </section>
+        
+        <section id="contacto" class="card">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Tu nombre" required>
+                <input type="email" id="email" placeholder="Tu email" required>
+                <textarea id="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <div id="form-message" class="hidden"></div>
+        </section>
+    </div>
     
-    .hero {
-        padding: 3rem 0;
-    }
+    <button id="theme-toggle">🌓</button>
     
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .section {
-        padding: 3rem 0;
-    }
-}
-
-@media (max-width: 576px) {
-    .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-    
-    .btn-outline {
-        margin-left: 0;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
+    <script>
+        // JavaScript para la interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar/ocultar contenido
+            const showMoreBtn = document.getElementById('show-more');
+            const moreContent = document.getElementById('more-content');
+            
+            showMoreBtn.addEventListener('click', function() {
+                if (moreContent.classList.contains('hidden')) {
+                    moreContent.classList.remove('hidden');
+                    showMoreBtn.textContent = 'Mostrar menos';
+                } else {
+                    moreContent.classList.add('hidden');
+                    showMoreBtn.textContent = 'Mostrar más';
+                }
+            });
+            
+            // Cambio de tema
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    themeToggle.textContent = '☀️';
+                } else {
+                    themeToggle.textContent = '🌓';
+                }
+            });
+            
+            // Efecto hover en el cuadro de color
+            const colorBox = document.querySelector('.color-box');
+            colorBox.addEventListener('mouseover', function() {
+                this.style.backgroundColor = '#35424a';
+                this.style.transform = 'scale(1.1)';
+                this.style.transition = 'all 0.3s';
+            });
+            
+            colorBox.addEventListener('mouseout', function() {
+                this.style.backgroundColor = '#e8491d';
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Animación de servicios
+            const animateBtn = document.getElementById('animate-services');
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            animateBtn.addEventListener('click', function() {
+                serviceItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateX(20px)';
+                        item.style.transition = 'transform 0.3s';
+                        
+                        setTimeout(() => {
+                            item.style.transform = 'translateX(0)';
+                        }, 300);
+                    }, index * 200);
+                });
+            });
+            
+            // Manejo del formulario
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Simulación de envío
+                setTimeout(() => {
+                    formMessage.textContent = `Gracias, ${name}! Tu mensaje ha sido enviado. Te responderemos a ${email} pronto.`;
+                    formMessage.classList.remove('hidden');
+                    formMessage.style.color = 'green';
+                    
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+                }, 1000);
+            });
+            
+            // Smooth scrolling para los enlaces del menú
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
