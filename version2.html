@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Web Interactiva</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #e8491d;
+            padding: 10px 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #333;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        button {
+            background: #e8491d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #333;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        #theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        
+        .dark-mode .card {
+            background: #2d2d2d;
+            color: #f4f4f4;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
+        input, textarea {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mi Página Interactiva</h1>
+        <p>Explora las características interactivas</p>
+    </header>
+    
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#acerca">Acerca de</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    
+    <div class="container">
+        <section id="inicio" class="card">
+            <h2>Bienvenido</h2>
+            <p>Esta es una página web interactiva con varias características:</p>
+            <ul>
+                <li>Cambio de tema (claro/oscuro)</li>
+                <li>Formulario interactivo</li>
+                <li>Efectos hover</li>
+                <li>Contenido que aparece/desaparece</li>
+            </ul>
+            <button id="show-more">Mostrar más</button>
+            <div id="more-content" class="hidden">
+                <p>¡Contenido adicional revelado! Esta sección estaba oculta y ahora es visible gracias a JavaScript.</p>
+                <p>Puedes usar esta técnica para mostrar información adicional cuando el usuario lo solicite.</p>
+            </div>
+        </section>
+        
+        <section id="acerca" class="card">
+            <h2>Acerca de Nosotros</h2>
+            <p>Somos un equipo dedicado a crear experiencias web interactivas y atractivas para los usuarios.</p>
+            <div class="interactive-box">
+                <p>Pasa el mouse sobre este cuadro:</p>
+                <div class="color-box" style="width: 100px; height: 100px; background-color: #e8491d; margin: 10px auto;"></div>
+            </div>
+        </section>
+        
+        <section id="servicios" class="card">
+            <h2>Nuestros Servicios</h2>
+            <div class="services">
+                <div class="service-item">
+                    <h3>Diseño Web</h3>
+                    <p>Creación de diseños modernos y responsivos.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Desarrollo Frontend</h3>
+                    <p>Implementación interactiva con HTML, CSS y JavaScript.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Optimización</h3>
+                    <p>Mejora de rendimiento y experiencia de usuario.</p>
+                </div>
+            </div>
+            <button id="animate-services">Animar Servicios</button>
+        </section>
+        
+        <section id="contacto" class="card">
+            <h2>Contacto</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Tu nombre" required>
+                <input type="email" id="email" placeholder="Tu email" required>
+                <textarea id="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            <div id="form-message" class="hidden"></div>
+        </section>
+    </div>
+    
+    <button id="theme-toggle">🌓</button>
+    
+    <script>
+        // JavaScript para la interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mostrar/ocultar contenido
+            const showMoreBtn = document.getElementById('show-more');
+            const moreContent = document.getElementById('more-content');
+            
+            showMoreBtn.addEventListener('click', function() {
+                if (moreContent.classList.contains('hidden')) {
+                    moreContent.classList.remove('hidden');
+                    showMoreBtn.textContent = 'Mostrar menos';
+                } else {
+                    moreContent.classList.add('hidden');
+                    showMoreBtn.textContent = 'Mostrar más';
+                }
+            });
+            
+            // Cambio de tema
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    themeToggle.textContent = '☀️';
+                } else {
+                    themeToggle.textContent = '🌓';
+                }
+            });
+            
+            // Efecto hover en el cuadro de color
+            const colorBox = document.querySelector('.color-box');
+            colorBox.addEventListener('mouseover', function() {
+                this.style.backgroundColor = '#35424a';
+                this.style.transform = 'scale(1.1)';
+                this.style.transition = 'all 0.3s';
+            });
+            
+            colorBox.addEventListener('mouseout', function() {
+                this.style.backgroundColor = '#e8491d';
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Animación de servicios
+            const animateBtn = document.getElementById('animate-services');
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            animateBtn.addEventListener('click', function() {
+                serviceItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.transform = 'translateX(20px)';
+                        item.style.transition = 'transform 0.3s';
+                        
+                        setTimeout(() => {
+                            item.style.transform = 'translateX(0)';
+                        }, 300);
+                    }, index * 200);
+                });
+            });
+            
+            // Manejo del formulario
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Simulación de envío
+                setTimeout(() => {
+                    formMessage.textContent = `Gracias, ${name}! Tu mensaje ha sido enviado. Te responderemos a ${email} pronto.`;
+                    formMessage.classList.remove('hidden');
+                    formMessage.style.color = 'green';
+                    
+                    contactForm.reset();
+                    
+                    setTimeout(() => {
+                        formMessage.classList.add('hidden');
+                    }, 5000);
+                }, 1000);
+            });
+            
+            // Smooth scrolling para los enlaces del menú
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
